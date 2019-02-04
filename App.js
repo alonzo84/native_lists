@@ -1,30 +1,33 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+
+import { Home } from './app/views/Home.js';
+import { Login } from './app/views/Login.js';
 
 import Bananas from './components/Bananas';
-import PizzaTranslators from './components/PizzaTranslator';
-import ButtonBasics from './components/ButtonBasics';
-import SwipeOut from './components/SwipeOut';
+// import PizzaTranslators from './components/PizzaTranslator';
+// import ButtonBasics from './components/ButtonBasics';
+// import SwipeOut from './components/SwipeOut';
 
+// import { Login } from './app/views/Login.js';
+
+const MyRoutes = StackNavigator({
+  HomeRT: {
+    screen: Login
+  },
+  LoginRT: {
+    screen: Login
+  }
+},
+  {
+    initialRouteName: 'HomeRT'
+  }
+);
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js tOOOOo start working on your app!</Text>
-        <Bananas/>
-        <PizzaTranslators/>
-        <ButtonBasics/>
-        <SwipeOut/>
-      </View>
+      <MyRoutes />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
