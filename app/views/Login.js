@@ -4,9 +4,8 @@ import {
     Text,
     View,
     TextInput,
-    TouchableHighlight
+    TouchableOpacity
 } from 'react-native';
-import { blue } from 'ansi-colors';
 
 export class Login extends React.Component {
     static navigationOptions = {
@@ -17,36 +16,49 @@ export class Login extends React.Component {
         super(props);
         this.state = {
             username: '',
-            passwrd: ''
+            password: '',
+            valid: false,
         };
+        this.changePassword = this.changePassword.bind(this);
     };
+
+    handleLogin() {
+        this.props.navigation.navigate('ListRT');
+    }
+
+    changePassword() {
+        let myRegex = new RegExp("^(?=.*[A-Z])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+        if (myRegex.test(this.state.password)) this.state.valid = true;
+    }
 
     render() {
         return (
-            <View style={styles.primarycontainer}>
+            <View style={styles.container}>
                 <View style={styles.headStyle}>
                     <Text style={styles.headText}>Welcome</Text>
                 </View>
-                <View style={styles.secondarycontainer}>
-                    <TextInput
-                        style={styles.inputs}
-                        onChangeText={(text) => this.setState({ username: text })}
-                        value={this.state.username}
-                        placeholder="Username"
-                    />
-                    <TextInput
-                        style={styles.inputs}
-                        onChangeText={(text) => this.setState({ passwrd: text })}
-                        value={this.state.passwrd}
-                        secureTextEntry={true}
-                        placeholder="Password"
-                    />
-                    <TouchableHighlight underlayColor='#31e981'>
-                        <Text style={styles.buttons}>
-                            Login
-                    </Text>
-                    </TouchableHighlight>
-                </View>
+                <TextInput
+                    style={styles.inputs}
+                    onChangeText={(text) => this.setState({ username: text })}
+                    value={this.state.username}
+                    placeholder="Username"
+                />
+                <TextInput
+                    style={styles.inputs}
+                    onChangeText={(text) => {
+                        this.setState({ passwrd: text })
+                        this.changePassword();
+                    }}
+                    value={this.state.password}
+                    secureTextEntry={true}
+                    placeholder="Password"
+                />
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={this.state.valid ? this.handleLogin : null}>
+                    <Text style={styles.headText}>Login</Text>
+                </TouchableOpacity>
+
             </View>
         );
     }
@@ -55,10 +67,8 @@ export class Login extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    primarycontainer: {
-        flex: 1
-    },
-    secondarycontainer: {
+    container: {
+        flex: 1,
         alignItems: 'center',
         paddingBottom: '45%',
         paddingTop: '10%'
@@ -66,25 +76,23 @@ const styles = StyleSheet.create({
     headText: {
         textAlign: 'center',
         color: '#ffffff',
-        fontSize: 16
+        fontSize: 22
     },
     headStyle: {
         paddingTop: 30,
         paddingRight: 10,
         backgroundColor: '#007dff',
-        flex: 2,
+        flex: 1,
         alignSelf: 'stretch'
+    },
+    button: {
+        backgroundColor: '#007dff',
+        width: "80%",
+        marginTop: "9%",
+        padding: "2%"
     },
     inputs: {
         flex: 1,
-        width: '80%',
-        padding: 10
-    },
-    buttons: {
-        marginTop: 15,
-        fontSize: 16
-    },
-    labels: {
-        paddingBottom: 10
+        width: '80%'
     }
 });
