@@ -2,24 +2,17 @@ import React, { Component } from 'react';
 import {
     Text,
     View,
-    Button,
     TouchableOpacity,
     Image,
     StyleSheet
 } from 'react-native';
 import Swipeout from 'react-native-swipeout';
+import DelButton from './DeleteBtn';
 
-
-const DelButton = () => {
-    return (
-        <TouchableOpacity
-            style={styles.delButton}>
-            <Text style={styles.delText}>Delete</Text>
-        </TouchableOpacity>
-    );
-}
-
-export default class SwipeOut extends Component {
+export default class MySwipeOut extends Component {
+    constructor(props){
+        super(props)
+    }
     render() {
         const {
             id,
@@ -30,9 +23,11 @@ export default class SwipeOut extends Component {
             // Swipeout component
             <Swipeout
                 right={[{
-                    component: <DelButton id={id} />,
+                    component: <DelButton />,
                     onPress: delHandler
-                }]}
+                },
+                sectionID={id}
+            ]}
             >
                 <View>
                     {/* <Image
@@ -46,13 +41,13 @@ export default class SwipeOut extends Component {
     }
 }
 
-const styles = StyleSheet.create({
-    delText: {
-        textAlign: 'center',
-        color: '#ffffff',
-        fontSize: 20,
-    },
-    delButton: {
-        backgroundColor: '#FF0000',
-    }
-});
+// const styles = StyleSheet.create({
+//     delText: {
+//         textAlign: 'center',
+//         color: '#ffffff',
+//         fontSize: 20,
+//     },
+//     delButton: {
+//         backgroundColor: '#FF0000',
+//     }
+// });

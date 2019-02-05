@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import {
     View, 
     Text,
-    StyleSheet
+    StyleSheet,
+    Alert
 } from 'react-native';
-import SwipeOut from '../../components/SwipeOut';
+import MySwipeOut from '../../components/MySwipeOut';
 
 class List extends Component {
     constructor(props) {
@@ -41,13 +42,15 @@ class List extends Component {
     }
 
     handleDelete(exampleId) {
+        Alert.alert(`you tapped the button ${exampleId}`)
         let index = this.state.examples.findIndex(x => x.id === exampleId);
         this.state.examples.splice(index, 1);
         this.setState(this.state.examples);
     }
 
     handleBackClick(){
-        this.props.navigation.navigate('LoginRT');
+        Alert.alert(`you navigate back`);
+        this.props.navigation.navigate('HomeRT');
     }
 
     render() {
@@ -56,8 +59,8 @@ class List extends Component {
                 <View><Text onPress={this.handleBackClick}>{`<`} List View</Text></View>
                 {this.state.examples.map((example) =>
                     <View key={example.id}>
-                        <SwipeOut
-                            sectionID={this.state.examples}
+                        <MySwipeOut
+                            sectionID={example}
                             description={example.text}
                             delHandler={this.handleDelete}
                         />
