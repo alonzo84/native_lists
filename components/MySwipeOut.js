@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
     Text,
     View,
-    TouchableOpacity,
     Image,
     StyleSheet
 } from 'react-native';
@@ -38,13 +37,5 @@ export default class MySwipeOut extends Component {
     }
 }
 
-// const styles = StyleSheet.create({
-//     delText: {
-//         textAlign: 'center',
-//         color: '#ffffff',
-//         fontSize: 20,
-//     },
-//     delButton: {
-//         backgroundColor: '#FF0000',
-//     }
-// });
+const styles = StyleSheet.create({
+});

@@ -8,7 +8,7 @@ import {
 
 export default DelButton = (props) => {
     return (
-        <View>
+        <View style={styles.container}>
             <TouchableOpacity
                 onPress={props.delHandler}
                 style={styles.delButton}>

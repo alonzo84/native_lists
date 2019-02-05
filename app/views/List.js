@@ -56,9 +56,9 @@ class List extends Component {
     render() {
         return (
             <View>
-                <View><Text onPress={this.handleBackClick}>{`<`} List View</Text></View>
+                <View style={styles.headStyle}><Text style={styles.headText} onPress={this.handleBackClick}>{`<             `} List View</Text></View>
                 {this.state.examples.map((example) =>
-                    <View key={example.id}>
+                    <View style={styles.rows} key={example.id}>
                         <MySwipeOut
                             id={example.id}
                             description={example.text}
@@ -72,3 +72,22 @@ class List extends Component {
 }
 
 export default List;
+
+const styles = StyleSheet.create({
+    headText: {
+        textAlign: 'center',
+        color: '#ffffff',
+        fontSize: 22
+    },
+    headStyle: {
+        paddingTop: 30,
+        paddingRight: 10,
+        backgroundColor: '#007dff',
+        alignSelf: 'stretch'
+    },
+    rows: {
+        textAlign: 'center',
+        borderColor: '#A9A9A9',
+        borderWidth: 0.5
+    }
+});
