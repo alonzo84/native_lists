@@ -20,6 +20,7 @@ export class Login extends React.Component {
             valid: false,
         };
         this.changePassword = this.changePassword.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);
     };
 
     handleLogin() {
@@ -46,7 +47,7 @@ export class Login extends React.Component {
                 <TextInput
                     style={styles.inputs}
                     onChangeText={(text) => {
-                        this.setState({ passwrd: text })
+                        this.setState({ password: text })
                         this.changePassword();
                     }}
                     value={this.state.password}

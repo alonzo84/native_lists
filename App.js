@@ -1,8 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-import { List } from './app/views/List.js';
+import  List  from './app/views/List.js';
 import { Login } from './app/views/Login.js';
 
 import Bananas from './components/Bananas';
