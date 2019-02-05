@@ -47,18 +47,17 @@ class List extends Component {
     }
 
     handleBackClick(){
-        this.props.history.push('/login');
+        this.props.navigation.navigate('LoginRT');
     }
 
     render() {
         return (
             <View>
-                <View><Text onClick={this.handleBackClick}>{`<`}</Text> List View</View>
+                <View><Text onPress={this.handleBackClick}>{`<`} List View</Text></View>
                 {this.state.examples.map((example) =>
-                    <View>
+                    <View key={example.id}>
                         <SwipeOut
-                            key={example.id}
-                            id={example.id}
+                            sectionID={this.state.examples}
                             description={example.text}
                             delHandler={this.handleDelete}
                         />
