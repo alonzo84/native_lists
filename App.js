@@ -4,9 +4,6 @@ import { StackNavigator } from 'react-navigation';
 import  List  from './app/views/List.js';
 import { Login } from './app/views/Login.js';
 
-import Bananas from './components/Bananas';
-// import SwipeOut from './components/SwipeOut';
-
 const MyRoutes = StackNavigator({
   HomeRT: {
     screen: Login
