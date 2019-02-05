@@ -23,11 +23,8 @@ export default class MySwipeOut extends Component {
             // Swipeout component
             <Swipeout
                 right={[{
-                    component: <DelButton />,
-                    onPress: delHandler
-                },
-                sectionID={id}
-            ]}
+                    component: <DelButton delHandler={() => delHandler(id)} />,
+                }]}
             >
                 <View>
                     {/* <Image

@@ -60,7 +60,7 @@ class List extends Component {
                 {this.state.examples.map((example) =>
                     <View key={example.id}>
                         <MySwipeOut
-                            sectionID={example}
+                            id={example.id}
                             description={example.text}
                             delHandler={this.handleDelete}
                         />
