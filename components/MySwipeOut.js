@@ -16,13 +16,14 @@ export default class MySwipeOut extends Component {
         const {
             id,
             description,
-            delHandler
+            delHandler,
+            buttonStyles
         } = this.props
         return (
             // Swipeout component
             <Swipeout
                 right={[{
-                    component: <DelButton delHandler={() => delHandler(id)} />,
+                    component: <DelButton style={buttonStyles} delHandler={() => delHandler(id)} />,
                 }]}
             >
                 <View>

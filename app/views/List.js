@@ -6,6 +6,7 @@ import {
     Alert
 } from 'react-native';
 import MySwipeOut from '../../components/MySwipeOut';
+import ListHeader from '../../components/ListHeader';
 
 class List extends Component {
     constructor(props) {
@@ -56,13 +57,15 @@ class List extends Component {
     render() {
         return (
             <View>
-                <View style={styles.headStyle}><Text style={styles.headText} onPress={this.handleBackClick}>{`<             `} List View</Text></View>
+                <ListHeader />
                 {this.state.examples.map((example) =>
                     <View style={styles.rows} key={example.id}>
                         <MySwipeOut
                             id={example.id}
                             description={example.text}
                             delHandler={this.handleDelete}
+                            style={styles.swipeout}
+                            buttonStyles={styles.swipeoutBtn}
                         />
                     </View>
                 )}
@@ -74,16 +77,13 @@ class List extends Component {
 export default List;
 
 const styles = StyleSheet.create({
-    headText: {
-        textAlign: 'center',
-        color: '#ffffff',
-        fontSize: 22
+    rows: {
+        flex: 1,
+        flexDirection: 'row',
+        height: 20
     },
-    headStyle: {
-        paddingTop: 30,
-        paddingRight: 10,
-        backgroundColor: '#007dff',
-        alignSelf: 'stretch'
+    swipeoutBtn: {
+
     },
     rows: {
         textAlign: 'center',
