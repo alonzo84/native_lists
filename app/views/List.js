@@ -63,7 +63,6 @@ class List extends Component {
                             id={example.id}
                             description={example.text}
                             delHandler={this.handleDelete}
-                            style={styles.swipeout}
                         />
                     </View>
                 )}

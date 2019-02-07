@@ -24,6 +24,8 @@ export default class MySwipeOut extends Component {
             <Swipeout
                 right={[{
                     component: <DelButton style={styles.buttonStyles} delHandler={() => delHandler(id)} />,
+                    backgroundColor: 'red',
+                    flex: 1
                 }]}
                 style={styles.swipeOut}
             >
@@ -49,9 +51,8 @@ const styles = StyleSheet.create({
         paddingTop: 20
     },
     swipeOut: {
-
     },
     buttonStyles: {
-
+        paddingTop: 20
     }
 });
