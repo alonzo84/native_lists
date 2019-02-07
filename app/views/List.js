@@ -50,14 +50,13 @@ class List extends Component {
     }
 
     handleBackClick(){
-        Alert.alert(`you navigate back`);
         this.props.navigation.navigate('HomeRT');
     }
 
     render() {
         return (
             <View>
-                <ListHeader />
+                <ListHeader handleBack={this.handleBackClick} />
                 {this.state.examples.map((example) =>
                     <View style={styles.rows} key={example.id}>
                         <MySwipeOut
@@ -65,7 +64,6 @@ class List extends Component {
                             description={example.text}
                             delHandler={this.handleDelete}
                             style={styles.swipeout}
-                            buttonStyles={styles.swipeoutBtn}
                         />
                     </View>
                 )}
@@ -78,16 +76,8 @@ export default List;
 
 const styles = StyleSheet.create({
     rows: {
-        flex: 1,
-        flexDirection: 'row',
-        height: 20
-    },
-    swipeoutBtn: {
-
-    },
-    rows: {
-        textAlign: 'center',
         borderColor: '#A9A9A9',
-        borderWidth: 0.5
+        borderWidth: 0.5,
+       
     }
 });

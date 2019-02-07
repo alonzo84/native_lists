@@ -23,15 +23,16 @@ export default class MySwipeOut extends Component {
             // Swipeout component
             <Swipeout
                 right={[{
-                    component: <DelButton style={buttonStyles} delHandler={() => delHandler(id)} />,
+                    component: <DelButton style={styles.buttonStyles} delHandler={() => delHandler(id)} />,
                 }]}
+                style={styles.swipeOut}
             >
-                <View>
+                <View style={styles.listTxt}>
                     {/* <Image
                         style={styles.logoStyle}
                         source={require("../assets/icon.png")}
                     /> */}
-                    <Text>{description}</Text>
+                    <Text style={styles.textStyle2}>{description}</Text>
                 </View>
             </Swipeout>
         )
@@ -39,4 +40,18 @@ export default class MySwipeOut extends Component {
 }
 
 const styles = StyleSheet.create({
+    textStyle2: {
+        textAlign: 'center',
+        fontSize: 20
+    },
+    listTxt: {
+        paddingBottom: 20,
+        paddingTop: 20
+    },
+    swipeOut: {
+
+    },
+    buttonStyles: {
+
+    }
 });

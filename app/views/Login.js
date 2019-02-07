@@ -7,7 +7,6 @@ import {
     TouchableOpacity
 } from 'react-native';
 
-import ListHeader from '../../components/ListHeader';
 export class Login extends React.Component {
     static navigationOptions = {
         header: null
@@ -35,8 +34,8 @@ export class Login extends React.Component {
 
     render() {
         return (
-            <View>
-                {/* <View style={styles.headStyle}>
+            <View style={styles.container}>
+                <View style={styles.headStyle}>
                     <Text style={styles.headText}>Welcome</Text>
                 </View>
                 <TextInput
@@ -59,8 +58,7 @@ export class Login extends React.Component {
                     style={styles.button}
                     onPress={this.state.valid ? this.handleLogin : null}>
                     <Text style={styles.headText}>Login</Text>
-                </TouchableOpacity> */}
-                <ListHeader />
+                </TouchableOpacity>
             </View>
         );
     }
